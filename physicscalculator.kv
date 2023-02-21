@@ -1,0 +1,177 @@
+WindowManager:
+    MainWindow:
+    MechanicsList:
+    Speed:
+    Efficiency:
+
+<MainWindow>:
+    name: "main"
+
+    MDGridLayout:
+        cols: 2
+        padding: 30, 40, 30, 130
+        spacing: 30, 10
+        md_bg_color: app.theme_cls.bg_darkest
+
+        Button
+            on_release:
+                app.root.current = "mech"
+                root.manager.transition.direction = "left"
+        Button
+        Label
+            text:"Механика"
+            size_hint: 1, 0.2
+        Label
+            text: "МКТ"
+            size_hint: 1, 0.2
+
+        Button
+        Button
+        Label
+            text:"Электродинамика"
+            size_hint: 1, 0.2
+        Label
+            text: "Оптика"
+            size_hint: 1, 0.2
+
+        Button
+        Button
+        Label
+            text:"Квантовая физика"
+            size_hint: 1, 0.2
+        Label
+            text: "Ядерная физика"
+            size_hint: 1, 0.2
+
+<MechanicsList>:
+    name: "mech"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Механика"
+            md_bg_color: app.theme_cls.bg_dark
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: app.callback(x)]]
+            pos_hint: {"top": 1}
+        ScrollView:
+            effect_cls: 'ScrollEffect'
+            MDList:
+                md_bg_color: app.theme_cls.bg_darkest
+                pos_hint: {"top": 1}
+                OneLineAvatarListItem:
+                    text: 'Расстояние'
+                    ImageLeftWidget:
+                        source: "icons\\S.jpg"
+                OneLineAvatarListItem:
+                    text: 'Скорость'
+                    on_release:
+                        app.root.current = "V"
+                        root.manager.transition.direction = "left"
+                    ImageLeftWidget:
+                        source: "icons\\V.jpg"
+                OneLineAvatarListItem:
+                    text: 'Время'
+                    ImageLeftWidget:
+                        source: "icons\\tt.jpg"
+                OneLineAvatarListItem:
+                    text: 'Ускорение'
+                    ImageLeftWidget:
+                        source: "icons\\aa.jpg"
+                OneLineAvatarListItem:
+                    text: 'Угол поворота радиуса'
+                    ImageLeftWidget:
+                        source: "icons\\fi.jpg"
+                OneLineAvatarListItem:
+                    text: 'Частота обращения по окружности'
+                    ImageLeftWidget:
+                        source: "icons\\vv.jpg"
+                OneLineAvatarListItem:
+                    text: 'Период обращения по окружности'
+                    ImageLeftWidget:
+                        source: "icons\\T.jpg"
+                OneLineAvatarListItem:
+                    text: 'Угловая скорость'
+                    ImageLeftWidget:
+                        source: "icons\\w.jpg"
+                OneLineAvatarListItem:
+                    text: 'Циклическая частота'
+                    ImageLeftWidget:
+                        source: "icons\\w.jpg"
+                OneLineAvatarListItem:
+                    text: 'Длина волны'
+                    ImageLeftWidget:
+                        source: "icons\\lambda.jpg"
+                OneLineAvatarListItem:
+                    text: 'Смещение при колебательном движении'
+                    ImageLeftWidget:
+                        source: "icons\\x.jpg"
+                OneLineAvatarListItem:
+                    text: 'Сила'
+                    ImageLeftWidget:
+                        source: "icons\\F.jpg"
+                OneLineAvatarListItem:
+                    text: 'Вес'
+                    ImageLeftWidget:
+                        source: "icons\\P.jpg"
+                OneLineAvatarListItem:
+                    text: 'Импульс'
+                    ImageLeftWidget:
+                        source: "icons\\pp.jpg"
+                OneLineAvatarListItem:
+                    text: 'Плотность'
+                    ImageLeftWidget:
+                        source: "icons\\ro.jpg"
+                OneLineAvatarListItem:
+                    text: 'Давление'
+                    ImageLeftWidget:
+                        source: "icons\\P.jpg"
+                OneLineAvatarListItem:
+                    text: 'Нормальная реакция опоры'
+                    ImageLeftWidget:
+                        source: "icons\\N.jpg"
+                OneLineAvatarListItem:
+                    text: 'Работа'
+                    ImageLeftWidget:
+                        source: "icons\\A.jpg"
+                OneLineAvatarListItem:
+                    text: 'Мощность'
+                    ImageLeftWidget:
+                        source: "icons\\N.jpg"
+                OneLineAvatarListItem:
+                    text: 'КПД'
+                    on_release:
+                        app.root.current = "eta"
+                        root.manager.transition.direction = "left"
+                    ImageLeftWidget:
+                        source: "icons\\nu.jpg"
+                OneLineAvatarListItem:
+                    text: 'Энергия'
+                    ImageLeftWidget:
+                        source: "icons\\E.jpg"
+
+<Speed>:
+    name: "V"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Скорость"
+            md_bg_color: app.theme_cls.bg_dark
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: app.callbackmech(x)]]
+            pos_hint: {"top": 1}
+        Label
+
+<Efficiency>:
+    name: "eta"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "КПД"
+            md_bg_color: app.theme_cls.bg_dark
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: app.callbackmech(x)]]
+            pos_hint: {"top": 1}
+        Label
